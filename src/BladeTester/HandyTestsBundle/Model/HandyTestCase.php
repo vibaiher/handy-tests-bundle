@@ -84,9 +84,10 @@ class HandyTestCase extends WebTestCase
         return $this->client->request($method, $route, $arguments, array(), $headers);
     }
 
-    protected function truncateTables($tables = array())
+    protected function truncateTables($tables = array(), $connection = 'default')
     {
-        TableTruncator::truncate($tables, $this->em);
+        $em = $this->getContainer()->get('doctrine')->getManager($connection);
+        TableTruncator::truncate($tables, $em);
     }
 
     protected function build($class_name, array $attributes = array())
