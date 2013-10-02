@@ -2,13 +2,11 @@
 
 namespace BladeTester\HandyTestsBundle\Model;
 
-use Doctrine\Common\Persistence\ObjectManager;
-
+use Doctrine\DBAL\Connection;
 
 class TableTruncator {
 
-	public static function truncate(array $tables, ObjectManager $om) {
-        $connection = $om->getConnection();
+	public static function truncate(array $tables, Connection $connection) {
         $platform = $connection->getDatabasePlatform();
         $connection->query("SET foreign_key_checks = 0");
         foreach ($tables as $table) {
