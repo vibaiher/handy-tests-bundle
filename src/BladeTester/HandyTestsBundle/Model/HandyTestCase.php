@@ -27,7 +27,7 @@ class HandyTestCase extends WebTestCase
 
     protected function getLocale()
     {
-        return $this->getParameter('locale') ?: 'en';
+        return $this->getParameter('locale') ?: "%en%";
     }
 
     public function getService($service_name) {

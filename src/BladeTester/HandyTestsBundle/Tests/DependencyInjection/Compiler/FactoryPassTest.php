@@ -14,8 +14,8 @@ class FactoryPassTest extends \PHPUnit_Framework_TestCase
 
     public function setUp() {
         $this->factoryPass = new FactoryPass;
-        $this->container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder');
-        $this->factoryDefinition = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $this->container = $this->createMock('Symfony\Component\DependencyInjection\ContainerBuilder');
+        $this->factoryDefinition = $this->createMock('Symfony\Component\DependencyInjection\Definition');
     }
 
 
@@ -155,7 +155,7 @@ class FactoryPassTest extends \PHPUnit_Framework_TestCase
 
     private function getDefinitionForClass($class)
     {
-        $definition_mock = $this->getMock('Symfony\Component\DependencyInjection\Definition');
+        $definition_mock = $this->createMock('Symfony\Component\DependencyInjection\Definition');
         $definition_mock->expects($this->any())
             ->method('getClass')
             ->will($this->returnValue($class));

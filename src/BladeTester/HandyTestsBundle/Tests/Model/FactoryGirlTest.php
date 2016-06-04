@@ -11,7 +11,7 @@ class FactoryGirlTest extends \PHPUnit_Framework_TestCase {
     private $om;
 
     public function setUp() {
-        $this->om = $this->getMock('Doctrine\Common\Persistence\ObjectManager');
+        $this->om = $this->createMock('Doctrine\Common\Persistence\ObjectManager');
         $this->existingClass = 'Sample';
     }
 
